@@ -17,7 +17,7 @@ func main() {
 
 	r := gin.Default()
 
-	auth.RegisterRoutes(r, &c)
+	auth.RegisterRoutes(r, c)
 
 	r.Run(c.Port)
 }

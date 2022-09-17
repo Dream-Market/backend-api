@@ -12,9 +12,10 @@ type ServiceClient struct {
 	Client pb.AuthServiceClient
 }
 
-func InitServiceClient(cfg *config.Config) pb.AuthServiceClient {
+func InitServiceClient(c config.Config) pb.AuthServiceClient {
 	// Add SSL
-	cc, err := grpc.Dial(cfg.AuthSrvcUrl, grpc.WithInsecure())
+	url := c.AuthSrvcHost + ":" + c.AuthSrvcPort
+	cc, err := grpc.Dial(url, grpc.WithInsecure())
 
 	if err != nil {
 		fmt.Println("Could not connect:", err)

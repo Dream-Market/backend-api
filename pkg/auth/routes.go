@@ -6,9 +6,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func RegisterRoutes(r *gin.Engine, cfg *config.Config) *ServiceClient {
+func RegisterRoutes(r *gin.Engine, c config.Config) *ServiceClient {
 	srvc := ServiceClient{
-		Client: InitServiceClient(cfg),
+		Client: InitServiceClient(c),
 	}
 
 	router := r.Group("/auth")
